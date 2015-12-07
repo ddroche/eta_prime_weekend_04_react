@@ -2,9 +2,10 @@ var express = require('express');
 var router = express.Router();
 var Application = require('../models/application.js');
 
-
 /* GET application listing. */
 router.get('/', function(req, res, next) {
+  var application = new Application('Derek');
+
   res.render('apply', {title: 'Apply'});
 });
 
@@ -35,10 +36,11 @@ router.post('/', function(req, res, next) {
                                     data.desiredLocation,
                                     empHistory,
                                     data.skills);
-  console.log(req.body);
   console.log(application);
-  application.insertOne(application, function(err, results) {
+  application.insertApp(application, function(err, results) {
+    console.log('insert works');
     if (err) {
+      console.log(err);
       next(err);
     }
     console.log('Results: ' + results);

@@ -15,7 +15,7 @@ var Application = function(firstName, lastName, desiredJob, desiredLocation,
   this.skills = skills;
 
   //get all applications
-  function getAll(callback) {
+  this.getAll = function(callback) {
     // connect to mongo
     mongoClient.connect(MONGO_DB, function (err, db) {
 
@@ -34,20 +34,19 @@ var Application = function(firstName, lastName, desiredJob, desiredLocation,
   }
 
   // insert new application
-  function insertApp(application, callback) {
+  this.insertApp = function(application, callback) {
+    console.log('insertApp');
     // connect to mongo
     mongoClient.connect(MONGO_DB, function(err, db) {
       if (err) {
-        return callback(err, null);
+        next(err);
       }
 
       //use collection named applications
       var collection = db.collection('applications');
 
       // insert one application into applications collection
-      collection.insertOne(application, function(err, results) {
-        return callback(err, results);
-      });
+      collection.insertOne(application, {w:1}, callback);
 
     });
   }
