@@ -1,0 +1,103 @@
+extends layout
+
+block content
+    .row
+        form.form-horizontal.col-md-8.col-md-offset-2
+            h3 Personal Information
+            .form-group
+                label(for="firstName" class="col-md-4 control-label") First Name
+                .col-md-8
+                    input(type="text" name="firstName" class="form-control" id="firstName" placeholder="First Name")
+            .form-group
+                label(for="lastName"  class="col-md-4 control-label") Last Name
+                .col-md-8
+                    input(type="text" name="lastName" class="form-control" id="lastName" placeholder="Last Name")
+            .form-group
+                label(for="desiredJob" class="col-md-4 control-label") Desired Job
+                .col-md-8
+                    input(type="text" name="desiredJob" class="form-control" id="desiredJob" placeholder="Desired Job")
+            .form-group
+                label(for="desiredLocation" class="col-md-4 control-label") Desired Location
+                .col-md-8
+                    .input-group
+                        span.input-group-addon
+                            input(type="checkbox" name="remote" id="remoteBox" aria-label="...")
+                            span  Remote
+                        input(type="text" name="desiredLocation" class="form-control" id="desiredLocation" placeholder="Desired Location")
+            h3 Employment History
+            h4 Employer 1
+            .form-group
+                label(for="jobTitle" class="col-md-4 control-label") Job Title
+                .col-md-8
+                    input(type="text" name="jobTitle1" class="form-control" id="jobTitle" placeholder="Title")
+            .form-group
+                label(for="employer" class="col-md-4 control-label") Employer
+                .col-md-8
+                    input(type="text" name="employer1" class="form-control" id="employer" placeholder="Employer")
+            .form-group
+                label(for="empCity" class="col-md-4 control-label") City
+                .col-md-8
+                    input(type="text" name="empCity1" class="form-control" id="empCity" placeholder="City")
+            .form-group
+                label(for="empState" class="col-md-4 control-label") State
+                .col-md-8
+                    input(type="text" name="empState1" class="form-control" id="empState" placeholder="State")
+            .form-group
+                label(for="description" class="col-md-4 control-label") Description
+                .col-md-8
+                    input(type="text" name="description1" class="form-control" id="description" placeholder="Brief Description of Position")
+            h4 Employer 2
+            .form-group
+                label(for="jobTitle2" class="col-md-4 control-label") Job Title
+                .col-md-8
+                    input(type="text" name="jobTitle2" class="form-control" id="jobTitle2" placeholder="Title")
+            .form-group
+                label(for="employer2" class="col-md-4 control-label") Employer
+                .col-md-8
+                    input(type="text" name="employer2" class="form-control" id="employer2" placeholder="Employer")
+            .form-group
+                label(for="empCity2" class="col-md-4 control-label") City
+                .col-md-8
+                    input(type="text" name="empCity2" class="form-control" id="empCity2" placeholder="City")
+            .form-group
+                label(for="empState2" class="col-md-4 control-label") State
+                .col-md-8
+                    input(type="text" name="empState2" class="form-control" id="empState2" placeholder="State")
+            .form-group
+                label(for="description2" class="col-md-4 control-label") Description
+                .col-md-8
+                    input(type="text" name="description2" class="form-control" id="description2" placeholder="Brief Description of Position")
+            h4 Employer 3
+            .form-group
+                label(for="jobTitle3" class="col-md-4 control-label") Job Title
+                .col-md-8
+                    input(type="text" name="jobTitle3" class="form-control" id="jobTitle3" placeholder="Title")
+            .form-group
+                label(for="employer3" class="col-md-4 control-label") Employer
+                .col-md-8
+                    input(type="text" name="employer3" class="form-control" id="employer3" placeholder="Employer")
+            .form-group
+                label(for="empCity3" class="col-md-4 control-label") City
+                .col-md-8
+                    input(type="text" name="empCity3" class="form-control" id="empCity3" placeholder="City")
+            .form-group
+                label(for="empState3" class="col-md-4 control-label") State
+                .col-md-8
+                    input(type="text" name="empState3" class="form-control" id="empState3" placeholder="State")
+            .form-group
+                label(for="description3" class="col-md-4 control-label") Description
+                .col-md-8
+                    input(type="text" name="description3" class="form-control" id="description3" placeholder="Brief Description of Position")
+            h3 Skills
+            .form-group
+                label(for="skills" class="col-md-4 control-label") Skills
+                .col-md-8
+                    input(type="text" name="skills" class="form-control" id="skills" placeholder="List of skills")
+            .form-group
+                label(for="submission" class="col-md-4 control-label") Apply Today!
+                .col-md-8
+                    input(type="submit" class="btn btn-default col-md-12" id="submission" value="Submit")
+
+
+
+

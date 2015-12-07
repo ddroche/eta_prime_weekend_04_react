@@ -1,0 +1,22 @@
+include mixins/navbar
+
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    +nav("Rando Corp", header_menu)
+      +nav_item('/', active) Home
+      +nav_item('/apply') Apply
+      +nav_item('/admin') Admin
+    block content
+
+    footer.footer
+      .container
+        p.text-muted &copy; Rando Corp
+
+  script(src='/jquery/jquery.min.js')
+  script(src='/javascripts/scripts.js')
+  link(href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css", rel="stylesheet", integrity="sha256-7s5uDGW3AHqw6xtJmNNtr+OBRJUlgkNJEo78P4b0yRw= sha512-nNo+yCHEyn0smMxSswnf/OnX6/KwJuZTlNZBjauKhTK0c+zT+q5JOCx0UFhXQ6rJR9jg6Es8gPuD2uZcYDLqSw==", crossorigin="anonymous")
+
