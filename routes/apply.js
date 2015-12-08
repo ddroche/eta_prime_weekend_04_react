@@ -26,9 +26,7 @@ router.post('/', function(req, res, next) {
                                     data.desiredLocation,
                                     empHistory,
                                     data.skills);
-  console.log(application);
   application.insertApp(application.getApp(), function(err, results) {
-    console.log('insert works');
     if (err) {
       console.log(err);
       next(err);

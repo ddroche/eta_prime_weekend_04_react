@@ -1,7 +1,8 @@
 $(document).ready(function() {
   console.log('working');
 
-  $('form').on('submit', function(event) {
+  //clicking submit on appy page submits application
+  $('form#apply').on('submit', function(event) {
     try {
       event.preventDefault();
       console.log('submit works');
@@ -22,12 +23,25 @@ $(document).ready(function() {
         alert('Thanks for your submission!');
       });
 
-
-
     } catch (exception) {
-      console.log(exception)
+      console.log(exception);
     }
 
   });
+
+  // Clicking search button on Admin page returns search results
+  $('#search').on('click', function(event) {
+    try {
+      $.ajax({
+        method: 'GET',
+        url: '/admin/search/' + $('#searchbox').val()
+      }).done(function(data){
+        console.log('button works');
+        console.log(data);
+      });
+    } catch (exception) {
+      console.log(exception);
+    }
+  })
 
 });

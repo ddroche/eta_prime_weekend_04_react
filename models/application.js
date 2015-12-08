@@ -2,6 +2,8 @@
 
 const MONGO_DB = 'mongodb://localhost:27017/eta_weekend04';
 
+// NOTE: Created text index on database (not in this model)
+
 // Retrieve the mongo client
 var mongoClient = require('mongodb').MongoClient;
 
@@ -25,6 +27,35 @@ var Application = function(firstName, lastName, desiredJob, desiredLocation,
             'dateApplied': this.dateApplied};
   };
 
+  // find apps from query
+  // note: search is an array of single word strings
+  this.findApps = function(search, callback) {
+    mongoClient.connect(MONGO_DB, function(err, db) {
+
+      if (err) {
+        return callback(err, null);
+      }
+      console.log('findApps');
+
+      var collection = db.collection('applications');
+
+      var applicants = [];
+
+      collection.find({$text: {$search: search}}).toArray(function(err, docs) {
+          if (err) {
+            return callback(err);
+          }if(docs) {
+            docs.forEach(function(elem) {
+              applicants.push(elem);
+            });
+          }
+          return callback(null, applicants);
+        });
+
+    });
+
+  };
+
   //get all applications
   this.getAll = function(callback) {
     // connect to mongo
@@ -46,7 +77,6 @@ var Application = function(firstName, lastName, desiredJob, desiredLocation,
 
   // insert new application
   this.insertApp = function(application, callback) {
-    console.log('insertApp');
     // connect to mongo
     mongoClient.connect(MONGO_DB, function(err, db) {
       if (err) {
