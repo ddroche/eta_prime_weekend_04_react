@@ -13,11 +13,22 @@ var Application = function(firstName, lastName, desiredJob, desiredLocation,
   this.desiredLocation = desiredLocation;
   this.empHistory = empHistory; //array
   this.skills = skills;
+  this.dateApplied = new Date();
+
+  this.getApp = function() {
+    return {'firstName': this.firstName,
+            'lastName': this.lastName,
+            'desiredJob': this.desiredJob,
+            'desiredLocation': this.desiredLocation,
+            'empHistory': this.empHistory,
+            'skills': this.skills,
+            'dateApplied': this.dateApplied};
+  };
 
   //get all applications
   this.getAll = function(callback) {
     // connect to mongo
-    mongoClient.connect(MONGO_DB, function (err, db) {
+    mongoClient.connect(MONGO_DB, function(err, db) {
 
       if (err) {
         return callback(err, null);
@@ -31,7 +42,7 @@ var Application = function(firstName, lastName, desiredJob, desiredLocation,
         return callback(err, results);
       });
     });
-  }
+  };
 
   // insert new application
   this.insertApp = function(application, callback) {
@@ -46,10 +57,10 @@ var Application = function(firstName, lastName, desiredJob, desiredLocation,
       var collection = db.collection('applications');
 
       // insert one application into applications collection
-      collection.insertOne(application, {w:1}, callback);
+      collection.insertOne(application, {w: 1}, callback);
 
     });
-  }
+  };
 
 };
 

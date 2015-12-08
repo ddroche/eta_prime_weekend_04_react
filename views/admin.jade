@@ -1,0 +1,53 @@
+extends layout
+
+block content
+    h2 Rando Corp Applicant Admin
+    .row
+        .col-md-8.col-md-offset-2
+            .input-group
+                input.form-control(type="text" placeholder="Search for...")
+                span.input-group-btn
+                    button.btn.btn-default(type="submit") Search
+
+    .row
+        .col-md-10.col-md-offset-1
+            h3 Current Applicants
+            table.table.table-hover
+                tbody
+                    tr
+                        th First Name
+                        th Last Name
+                        th Desired Location
+                        th Last Employer
+                        th Skills
+                    tr
+                        td Derek
+                        td Roche
+                        td Minnesota
+                        td Boise Inc
+                        td JS, HTML, CSS, Bootstrap, Node
+                    tr
+                        td Katie
+                        td Roche
+                        td Minnesota
+                        td HOPE Community Academy
+                        td Spanish, Elem. Education, Life
+
+
+
+
+
+//Components
+//    Header
+//        Displays "Rando Corp Applicant Admin"
+//    Search form
+//        Provides ability to search applicant data by name and/or desired location and/or skills
+//    Matching Applicants table
+//        -A table of applicants tha tmatch the serached criteria, displays all results
+//        -pre-search, it should just show the last 5 applications that have been submitted
+//        -available data
+//            -first name
+//            -last name
+//            -desired location
+//            -last employer
+//            -skills
